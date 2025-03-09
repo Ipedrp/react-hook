@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { FaUser, FaChevronDown, FaCogs, FaChartBar, FaSignOutAlt, FaRegFolder, FaTimes, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaUserFriends, FaRegFolder, FaTimes, FaChevronUp } from 'react-icons/fa';
+import { GoNumber } from "react-icons/go";
+import { Link } from 'react-router';
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true);
@@ -14,7 +16,7 @@ const Sidebar = () => {
     };
 
     return (
-        <div className={`flex ${isOpen ? 'w-64' : 'w-20'} h-screen bg-gray-800 text-white transition-all duration-600`}>
+        <div className={`flex ${isOpen ? 'w-64' : 'w-20'} h-screen bg-black text-white transition-all duration-600`}>
             <div className="flex flex-col w-full">
                 {/* Header */}
                 <div className="p-4 flex items-center justify-between">
@@ -31,23 +33,6 @@ const Sidebar = () => {
                 {/* Menu */}
                 <div className="flex flex-col p-4">
                     <ul className="space-y-4">
-                        <li className="flex items-center space-x-4">
-                            <FaUser size={24} />
-                            {isOpen && <span>Usuário</span>}
-                        </li>
-                        <li className=" flex items-center space-x-4">
-                            <FaSignOutAlt size={20} />
-                            {isOpen && <span>Logout</span>}
-                        </li>
-                        <li className=" flex items-center space-x-4">
-                            <FaChartBar size={20} />
-                            {isOpen && <span>Gráficos</span>}
-                        </li>
-                        <li className=" flex items-center space-x-4">
-                            <FaRegFolder size={20} />
-                            {isOpen && <span>Formulários</span>}
-                        </li>
-
                         {/* Item de Dropdown */}
                         <li className="relative">
                             <button
@@ -56,7 +41,7 @@ const Sidebar = () => {
         ${isOpen && "space-x-4"}`}
                             >
                                 <FaRegFolder size={20} /> {/* Mantenha um tamanho fixo */}
-                                {isOpen && <span>Opções</span>}
+                                {isOpen && <span>Essenciais</span>}
                                 {isOpen ? (
                                     isDropdownOpen ? <FaChevronDown size={16} /> : <FaChevronUp size={16} />
                                 ) : null}
@@ -65,19 +50,36 @@ const Sidebar = () => {
 
                             {/* Dropdown */}
                             <ul
-                                className={`absolute bg-gray-700 text-white rounded-md mt-2 p-2 w-full 
-  transition-all duration-500 ease-in-out overflow-hidden 
-  ${isDropdownOpen && isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
+                                className={`absolute  text-white rounded-md mt-2  w-full 
+        transition-all duration-500 ease-in-out overflow-hidden 
+        ${isDropdownOpen && isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
                             >
-                                <li className="py-2 px-4 hover:bg-gray-600 cursor-pointer flex items-center space-x-4">
-                                    <FaCogs size={20} />
-                                    {isOpen && <span>Configurações</span>}
-                                </li>
-                                <li className="py-2 px-4 hover:bg-gray-600 cursor-pointer flex items-center space-x-4">
-                                    <FaCogs size={20} />
-                                    {isOpen && <span>Opção 2</span>}
-                                </li>
+                                <Link to="/contador/useStates">
+                                    <li className="mb-2 py-2 px-2 bg-neutral-600 rounded-2xl text-sky-400 cursor-pointer flex items-center justify-start space-x-4">
+                                        <GoNumber size={20} />
+                                        {isOpen && (
+                                            <p>
+                                                Contador
+                                                <span className="bg-sky-600 text-white px-2 py-1 rounded-xl ml-2">useStates</span>
+                                            </p>
+
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/votacao/useStates">
+                                    <li className="mb-2 py-2 px-2 bg-neutral-600 rounded-2xl text-sky-400 cursor-pointer flex items-center justify-start space-x-4">
+                                        <FaUserFriends size={20} />
+                                        {isOpen && (
+                                            <p>
+                                                Votação
+                                                <span className="bg-sky-600 text-white px-2 py-1 rounded-xl ml-2">useStates</span>
+                                            </p>
+
+                                        )}
+                                    </li>
+                                </Link>
                             </ul>
+
 
                         </li>
                     </ul>
