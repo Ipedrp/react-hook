@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
-import { FaChevronDown, FaUserFriends, FaRegFolder, FaTimes, FaChevronUp, FaExchangeAlt, FaChevronRight, FaAmilia} from 'react-icons/fa';
+import {
+    FaChevronDown,
+    FaUserFriends,
+    FaRegFolder,
+    FaTimes,
+    FaChevronUp,
+    FaExchangeAlt,
+    FaChevronRight,
+    FaAmilia
+} from 'react-icons/fa';
 import { GoNumber } from "react-icons/go";
+import { RiRefreshLine } from "react-icons/ri";
+import { CgSmartphoneRam } from "react-icons/cg";
 import { Link, useLocation } from 'react-router';
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const location = useLocation(); // Hook para pegar a URL atual
+    const location = useLocation(); 
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -17,7 +28,7 @@ const Sidebar = () => {
     };
 
     return (
-        <div className={`flex ${isOpen ? 'w-64' : 'w-30'} h-screen bg-black text-white transition-all duration-600`}>
+        <div className={`flex ${isOpen ? 'w-84' : 'w-20'} h-screen bg-black text-white transition-all duration-600`}>
             <div className="flex flex-col w-full">
                 {/* Header */}
                 <div className="p-4 flex items-center justify-between">
@@ -52,21 +63,21 @@ const Sidebar = () => {
                             <ul
                                 className={`absolute text-white rounded-md mt-2 w-full 
                                 transition-all duration-500 ease-in-out overflow-hidden 
-                                ${isDropdownOpen && isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"}`}
+                                ${isDropdownOpen && isOpen ? "max-h-120 opacity-100" : "max-h-0 opacity-0"}`}
                             >
                                 <Link to="/contador/useStates">
-                                    <li 
-                                        className={`mb-2 py-2 px-2 bg-stone-600 rounded-md cursor-pointer flex items-center justify-start space-x-4
-                                        ${location.pathname === "/contador/useStates" && "text-sky-400"}`}
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/contador/useStates" && "text-sky-400 bg-stone-600"}`}
                                     >
-                                        <GoNumber size={20} />
+                                        <GoNumber size={15} />
                                         {isOpen && (
                                             <p>
                                                 Contador
-                                                <span 
+                                                <span
                                                     className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2
                                                     ${location.pathname === "/contador/useStates" && "text-white bg-sky-500"}`}
-                                                    >
+                                                >
                                                     useStates
                                                 </span>
                                             </p>
@@ -74,18 +85,18 @@ const Sidebar = () => {
                                     </li>
                                 </Link>
                                 <Link to="/votacao/useStates">
-                                    <li 
-                                        className={`mb-2 py-2 px-2 bg-stone-600 rounded-md cursor-pointer flex items-center justify-start space-x-4
-                                        ${location.pathname === "/votacao/useStates" && "text-sky-400"}`}
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/votacao/useStates" && "text-sky-400 bg-stone-600"}`}
                                     >
-                                        <FaUserFriends size={20} />
+                                        <FaUserFriends size={15} />
                                         {isOpen && (
                                             <p>
                                                 Votação
-                                                <span 
+                                                <span
                                                     className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/votacao/useStates" && "text-white bg-sky-500"}`}
-                                                    >
+                                                >
                                                     useStates
                                                 </span>
                                             </p>
@@ -93,18 +104,18 @@ const Sidebar = () => {
                                     </li>
                                 </Link>
                                 <Link to="/consulta/useEffect" >
-                                    <li 
-                                        className={`mb-2 py-2 px-2 bg-stone-600 rounded-md cursor-pointer flex items-center justify-start space-x-4
-                                        ${location.pathname === "/consulta/useEffect" && "text-sky-400"}`}
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/consulta/useEffect" && "text-sky-400 bg-stone-600"}`}
                                     >
-                                        <FaExchangeAlt  size={20} />
+                                        <FaExchangeAlt size={15} />
                                         {isOpen && (
                                             <p>
-                                                API
-                                                <span 
+                                                Consumo API
+                                                <span
                                                     className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/consulta/useEffect" && "text-white bg-sky-500"}`}
-                                                    >
+                                                >
                                                     useEffect
                                                 </span>
                                             </p>
@@ -112,18 +123,18 @@ const Sidebar = () => {
                                     </li>
                                 </Link>
                                 <Link to="/maior/useEffect" >
-                                    <li 
-                                        className={`mb-2 py-2 px-2 bg-stone-600 rounded-md cursor-pointer flex items-center justify-start space-x-4
-                                        ${location.pathname === "/maior/useEffect" && "text-sky-400"}`}
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/maior/useEffect" && "text-sky-400 bg-stone-600 "}`}
                                     >
-                                        <FaChevronRight   size={20} />
+                                        <FaChevronRight size={15} />
                                         {isOpen && (
                                             <p>
                                                 Maior
-                                                <span 
+                                                <span
                                                     className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/maior/useEffect" && "text-white bg-sky-500"}`}
-                                                    >
+                                                >
                                                     useEffect
                                                 </span>
                                             </p>
@@ -131,19 +142,76 @@ const Sidebar = () => {
                                     </li>
                                 </Link>
                                 <Link to="/caracter/useEffect" >
-                                    <li 
-                                        className={`mb-2 py-2 px-2 bg-stone-600 rounded-md cursor-pointer flex items-center justify-start space-x-4
-                                        ${location.pathname === "/caracter/useEffect" && "text-sky-400"}`}
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/caracter/useEffect" && "text-sky-400 bg-stone-600 "}`}
                                     >
-                                        <FaAmilia   size={20} />
+                                        <FaAmilia size={15} />
                                         {isOpen && (
                                             <p>
-                                                Caracteres
-                                                <span 
+                                                Contagem Caracteres
+                                                <span
                                                     className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/caracter/useEffect" && "text-white bg-sky-500"}`}
-                                                    >
+                                                >
                                                     useEffect
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/stateVSref/useRef" >
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/stateVSref/useRef" && "text-sky-400 bg-stone-600 "}`}
+                                    >
+                                        <RiRefreshLine size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Estado Vs Referência
+                                                <span
+                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    ${location.pathname === "/stateVSref/useRef" && "text-white bg-sky-500"}`}
+                                                >
+                                                    useRef
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/elemento/useRef" >
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/elemento/useRef" && "text-sky-400 bg-stone-600 "}`}
+                                    >
+                                        <CgSmartphoneRam  size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Referenciando Elemento
+                                                <span
+                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    ${location.pathname === "/elemento/useRef" && "text-white bg-sky-500"}`}
+                                                >
+                                                    useRef
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/caracter/useRef" >
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/caracter/useRef" && "text-sky-400 bg-stone-600 "}`}
+                                    >
+                                        <FaAmilia size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Contagem Caracteres
+                                                <span
+                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    ${location.pathname === "/caracter/useRef" && "text-white bg-sky-500"}`}
+                                                >
+                                                    useRef
                                                 </span>
                                             </p>
                                         )}
