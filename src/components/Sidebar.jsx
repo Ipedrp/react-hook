@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     FaChevronDown,
     FaUserFriends,
@@ -16,19 +16,18 @@ import { RiRefreshLine } from "react-icons/ri";
 import { TbPasswordFingerprint } from "react-icons/tb";
 import { CgSmartphoneRam } from "react-icons/cg";
 import { Link, useLocation } from 'react-router';
+import useToggle from '../hooks/useToggle';
+import useTamanhoJanela from '../hooks/useTamanhoJanela';
 
 const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(true);
+    const { largura, obterInfoDimensao } = useTamanhoJanela();
+    const [isOpen, toggleOpen] = useToggle(true)
     const [dropdowns, setDropdowns] = useState({
         essenciais: false,
         personalizados: false,
-    }); 
-    
-    const location = useLocation();
+    });
 
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
+    const location = useLocation();
 
     const toggleDropdown = (key) => {
         setDropdowns((prev) => ({
@@ -37,17 +36,25 @@ const Sidebar = () => {
         }));
     };
 
+    useEffect(() => {
+        const { rotulo } = obterInfoDimensao();
+        if (rotulo === "XS") {
+            toggleOpen(false);
+        }
+    }, [largura]);
+
+
 
     return (
         <div className={`flex ${isOpen ? 'w-84' : 'w-20'} h-screen bg-black text-white transition-all duration-600`}>
             <div className="flex flex-col w-full">
                 {/* Header */}
                 <div className="p-4 flex items-center justify-between">
-                    <span onClick={toggleSidebar} className="text-lg font-semibold hover:cursor-pointer">
+                    <span onClick={toggleOpen} className="text-lg font-semibold hover:cursor-pointer">
                         Hooks
                     </span>
                     {isOpen ? (
-                        <button onClick={toggleSidebar} className="text-white hover:cursor-pointer">
+                        <button onClick={toggleOpen} className="text-white hover:cursor-pointer">
                             <FaTimes size={20} />
                         </button>
                     ) : null}
@@ -65,7 +72,7 @@ const Sidebar = () => {
                                 ${isOpen && "space-x-4"}`}
                             >
                                 <FaRegFolder size={20} /> {/* Ícone fixo */}
-                                {isOpen && <span>Essenciais</span>}
+                                {isOpen && <span className='text-sm font-bold'>ESSENCIAIS</span>}
                                 {isOpen ? (
                                     dropdowns.essenciais ? <FaChevronDown size={16} /> : <FaChevronUp size={16} />
                                 ) : null}
@@ -87,7 +94,7 @@ const Sidebar = () => {
                                             <p>
                                                 Contador
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
                                                     ${location.pathname === "/contador/useStates" && "text-white bg-sky-500"}`}
                                                 >
                                                     useStates
@@ -106,7 +113,7 @@ const Sidebar = () => {
                                             <p>
                                                 Votação
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/votacao/useStates" && "text-white bg-sky-500"}`}
                                                 >
                                                     useStates
@@ -125,7 +132,7 @@ const Sidebar = () => {
                                             <p>
                                                 Consumo API
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/consulta/useEffect" && "text-white bg-sky-500"}`}
                                                 >
                                                     useEffect
@@ -144,7 +151,7 @@ const Sidebar = () => {
                                             <p>
                                                 Maior
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/maior/useEffect" && "text-white bg-sky-500"}`}
                                                 >
                                                     useEffect
@@ -163,7 +170,7 @@ const Sidebar = () => {
                                             <p>
                                                 Contagem Caracteres
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/caracter/useEffect" && "text-white bg-sky-500"}`}
                                                 >
                                                     useEffect
@@ -182,7 +189,7 @@ const Sidebar = () => {
                                             <p>
                                                 Estado Vs Referência
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/stateVSref/useRef" && "text-white bg-sky-500"}`}
                                                 >
                                                     useRef
@@ -201,7 +208,7 @@ const Sidebar = () => {
                                             <p>
                                                 Referenciando Elemento
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/elemento/useRef" && "text-white bg-sky-500"}`}
                                                 >
                                                     useRef
@@ -220,7 +227,7 @@ const Sidebar = () => {
                                             <p>
                                                 Contagem Caracteres
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2 
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
                                                     ${location.pathname === "/caracter/useRef" && "text-white bg-sky-500"}`}
                                                 >
                                                     useRef
@@ -241,7 +248,7 @@ const Sidebar = () => {
                                 ${isOpen && "space-x-4"}`}
                             >
                                 <FaRegFolder size={20} /> {/* Ícone fixo */}
-                                {isOpen && <span>Personalizados</span>}
+                                {isOpen && <span className='text-sm font-bold'>PERSONALIZADOS</span>}
                                 {isOpen ? (
                                     dropdowns.personalizados ? <FaChevronDown size={16} /> : <FaChevronUp size={16} />
                                 ) : null}
@@ -254,12 +261,12 @@ const Sidebar = () => {
                                         className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
                                         ${location.pathname === "/useToogle/useHook" && "text-sky-400 bg-stone-600"}`}
                                     >
-                                        <BsWindowX  size={15} />
+                                        <BsWindowX size={15} />
                                         {isOpen && (
                                             <p>
                                                 Modal
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
                                                     ${location.pathname === "/useToogle/useHook" && "text-white bg-sky-500"}`}
                                                 >
                                                     useHook
@@ -278,7 +285,7 @@ const Sidebar = () => {
                                             <p>
                                                 Tamanho da Janela
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
                                                     ${location.pathname === "/useTamanhoJanela/useHook" && "text-white bg-sky-500"}`}
                                                 >
                                                     useHook
@@ -297,7 +304,7 @@ const Sidebar = () => {
                                             <p>
                                                 Senha
                                                 <span
-                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
                                                     ${location.pathname === "/useStatesValidado/useHook" && "text-white bg-sky-500"}`}
                                                 >
                                                     useHook
