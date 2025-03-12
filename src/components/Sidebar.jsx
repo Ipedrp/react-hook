@@ -10,22 +10,33 @@ import {
     FaAmilia
 } from 'react-icons/fa';
 import { GoNumber } from "react-icons/go";
+import { BsWindowX } from "react-icons/bs";
+import { CgDockWindow } from "react-icons/cg";
 import { RiRefreshLine } from "react-icons/ri";
+import { TbPasswordFingerprint } from "react-icons/tb";
 import { CgSmartphoneRam } from "react-icons/cg";
 import { Link, useLocation } from 'react-router';
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(true);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const location = useLocation(); 
+    const [dropdowns, setDropdowns] = useState({
+        essenciais: false,
+        personalizados: false,
+    }); 
+    
+    const location = useLocation();
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
 
-    const toggleDropdown = () => {
-        setIsDropdownOpen(!isDropdownOpen);
+    const toggleDropdown = (key) => {
+        setDropdowns((prev) => ({
+            ...prev,
+            [key]: !prev[key],
+        }));
     };
+
 
     return (
         <div className={`flex ${isOpen ? 'w-84' : 'w-20'} h-screen bg-black text-white transition-all duration-600`}>
@@ -44,26 +55,27 @@ const Sidebar = () => {
 
                 {/* Menu */}
                 <div className="flex flex-col p-4 ">
+                    {/* Essenciais */}
                     <ul className="space-y-4 ">
                         {/* Item de Dropdown */}
-                        <li className="relative">
+                        <li >
                             <button
-                                onClick={toggleDropdown}
+                                onClick={() => toggleDropdown('essenciais')}
                                 className={`flex items-center w-full text-left bg-transparent text-white focus:outline-none 
                                 ${isOpen && "space-x-4"}`}
                             >
                                 <FaRegFolder size={20} /> {/* Ícone fixo */}
                                 {isOpen && <span>Essenciais</span>}
                                 {isOpen ? (
-                                    isDropdownOpen ? <FaChevronDown size={16} /> : <FaChevronUp size={16} />
+                                    dropdowns.essenciais ? <FaChevronDown size={16} /> : <FaChevronUp size={16} />
                                 ) : null}
                             </button>
 
                             {/* Dropdown */}
                             <ul
-                                className={`absolute text-white rounded-md mt-2 w-full 
+                                className={` text-white rounded-md mt-2 w-full 
                                 transition-all duration-500 ease-in-out overflow-hidden 
-                                ${isDropdownOpen && isOpen ? "max-h-120 opacity-100" : "max-h-0 opacity-0"}`}
+                                ${dropdowns.essenciais && isOpen ? "max-h-120 opacity-100" : "max-h-0 opacity-0"}`}
                             >
                                 <Link to="/contador/useStates">
                                     <li
@@ -184,7 +196,7 @@ const Sidebar = () => {
                                         className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
                                         ${location.pathname === "/elemento/useRef" && "text-sky-400 bg-stone-600 "}`}
                                     >
-                                        <CgSmartphoneRam  size={15} />
+                                        <CgSmartphoneRam size={15} />
                                         {isOpen && (
                                             <p>
                                                 Referenciando Elemento
@@ -212,6 +224,83 @@ const Sidebar = () => {
                                                     ${location.pathname === "/caracter/useRef" && "text-white bg-sky-500"}`}
                                                 >
                                                     useRef
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                            </ul>
+                        </li>
+                    </ul>
+                    {/* Personalizados */}
+                    <ul className="space-y-4 my-4">
+                        <li>
+                            <button
+                                onClick={() => toggleDropdown('personalizados')}
+                                className={`flex items-center w-full text-left bg-transparent text-white focus:outline-none 
+                                ${isOpen && "space-x-4"}`}
+                            >
+                                <FaRegFolder size={20} /> {/* Ícone fixo */}
+                                {isOpen && <span>Personalizados</span>}
+                                {isOpen ? (
+                                    dropdowns.personalizados ? <FaChevronDown size={16} /> : <FaChevronUp size={16} />
+                                ) : null}
+                            </button>
+                            <ul className={` text-white rounded-md mt-2 w-full 
+                                transition-all duration-500 ease-in-out overflow-hidden 
+                                ${dropdowns.personalizados && isOpen ? "max-h-120 opacity-100" : "max-h-0 opacity-0"}`}>
+                                <Link to="/useToogle/useHook">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/useToogle/useHook" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <BsWindowX  size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Modal
+                                                <span
+                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2
+                                                    ${location.pathname === "/useToogle/useHook" && "text-white bg-sky-500"}`}
+                                                >
+                                                    useHook
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/useTamanhoJanela/useHook">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/useTamanhoJanela/useHook" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <CgDockWindow size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Tamanho da Janela
+                                                <span
+                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2
+                                                    ${location.pathname === "/useTamanhoJanela/useHook" && "text-white bg-sky-500"}`}
+                                                >
+                                                    useHook
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/useStatesValidado/useHook">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/useStatesValidado/useHook" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <TbPasswordFingerprint size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Senha
+                                                <span
+                                                    className={`bg-neutral-700 px-2 py-0 rounded-xl ml-2
+                                                    ${location.pathname === "/useStatesValidado/useHook" && "text-white bg-sky-500"}`}
+                                                >
+                                                    useHook
                                                 </span>
                                             </p>
                                         )}

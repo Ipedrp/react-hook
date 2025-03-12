@@ -9,7 +9,9 @@ import ContagemCaracter  from '../pages/essenciais/ContagemCaracteres'
 import StateVsRef from '../pages/essenciais/StateVsRef';
 import RefElemento from '../pages/essenciais/refElemento';
 import ContagemCaracterUseRef from '../pages/essenciais/ContagemCaracteresUseRef';
-
+import Modal from '../pages/personalizados/Modal';
+import TamanhoJanela from '../pages/personalizados/TamanhoJanela';
+import Senha from '../pages/personalizados/Senha';
 export const AppRoutes = () => (
     <Routes>
         <Route element={<DefaultLayout />}>
@@ -22,6 +24,9 @@ export const AppRoutes = () => (
             <Route path="/stateVSref/useRef" element={<StateVsRef />} />
             <Route path="/elemento/useRef" element={<RefElemento />} />
             <Route path="/caracter/useRef" element={<ContagemCaracterUseRef />} />
+            <Route path="/useToogle/useHook" element={<Modal />} />
+            <Route path="/useTamanhoJanela/useHook" element={<TamanhoJanela />} />
+            <Route path="/useStatesValidado/useHook" element={<Senha />} />
         </Route>
     </Routes>
 );
