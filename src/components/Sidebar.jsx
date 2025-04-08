@@ -7,7 +7,8 @@ import {
     FaChevronUp,
     FaExchangeAlt,
     FaChevronRight,
-    FaAmilia
+    FaAmilia,
+    FaShoppingCart 
 } from 'react-icons/fa';
 import { GoNumber } from "react-icons/go";
 import { BsWindowX } from "react-icons/bs";
@@ -25,6 +26,7 @@ const Sidebar = () => {
     const [dropdowns, setDropdowns] = useState({
         essenciais: false,
         personalizados: false,
+        contexto: false,
     });
 
     const location = useLocation();
@@ -42,7 +44,6 @@ const Sidebar = () => {
             toggleOpen(false);
         }
     }, [largura]);
-
 
 
     return (
@@ -308,6 +309,45 @@ const Sidebar = () => {
                                                     ${location.pathname === "/useStatesValidado/useHook" && "text-white bg-sky-500"}`}
                                                 >
                                                     useHook
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                            </ul>
+                        </li>
+                    </ul>
+                    {/* Contexto */}
+                    <ul className="space-y-4 my-4">
+                        <li>
+                            <button
+                                onClick={() => toggleDropdown('contexto')}
+                                className={`flex items-center w-full text-left bg-transparent text-white focus:outline-none 
+                                ${isOpen && "space-x-4"}`}
+                            >
+                                <FaRegFolder size={20} /> {/* Ícone fixo */}
+                                {isOpen && <span className='text-sm font-bold'>CONTEXTO</span>}
+                                {isOpen ? (
+                                    dropdowns.contexto ? <FaChevronDown size={16} /> : <FaChevronUp size={16} />
+                                ) : null}
+                            </button>
+                            <ul className={` text-white rounded-md mt-2 w-full 
+                                transition-all duration-500 ease-in-out overflow-hidden 
+                                ${dropdowns.contexto && isOpen ? "max-h-120 opacity-100" : "max-h-0 opacity-0"}`}>
+                                <Link to="/loja/useContext">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/loja/useContext" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <FaShoppingCart  size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Loja
+                                                <span
+                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
+                                                    ${location.pathname === "/loja/useContext" && "text-white bg-sky-500"}`}
+                                                >
+                                                    useContext
                                                 </span>
                                             </p>
                                         )}

@@ -12,6 +12,7 @@ import ContagemCaracterUseRef from '../pages/essenciais/ContagemCaracteresUseRef
 import Modal from '../pages/personalizados/Modal';
 import TamanhoJanela from '../pages/personalizados/TamanhoJanela';
 import Senha from '../pages/personalizados/Senha';
+import Loja from '../pages/contexto/Loja';
 export const AppRoutes = () => (
     <Routes>
         <Route element={<DefaultLayout />}>
@@ -27,6 +28,7 @@ export const AppRoutes = () => (
             <Route path="/useToogle/useHook" element={<Modal />} />
             <Route path="/useTamanhoJanela/useHook" element={<TamanhoJanela />} />
             <Route path="/useStatesValidado/useHook" element={<Senha />} />
+            <Route path="/loja/useContext" element={<Loja />} />
         </Route>
     </Routes>
 );
