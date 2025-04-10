@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import Header from "../../components/Header";
+import SeletorCor from "../../components/SeletorCor";
 
 export default function Maior() {
 
@@ -17,14 +19,14 @@ export default function Maior() {
     }, [N1, N2])
     //Esse efeito só acontece quando o valor de N1 muda ou o de N2 muda!
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(`N1: ${N1}, N2: ${N2}, maior: ${maior}   `);
-        
+
     }, [N1, N2, maior])
     //Esse efeito acontece quando o N1 ou N2 ou MAIOR muda! Se N1 ou N2 junto com o MAIOR mudar, Aparece dois console.log(); 
 
-    useEffect(()=>{
-        if(maior > 5){
+    useEffect(() => {
+        if (maior > 5) {
             window.alert("Os números estão ficando altos!")
         }
     }, [maior])
@@ -32,6 +34,9 @@ export default function Maior() {
 
     return (
         <>
+            <Header title="Maior" subtitle="Usando múltiplos estados">
+                <SeletorCor />
+            </Header>
             <h1 className="text-gray-200 font-extrabold text-4xl">Maior</h1>
             <p className="text-gray-400"></p>
             <div className="flex justify-center flex-col items-center h-[90%]">

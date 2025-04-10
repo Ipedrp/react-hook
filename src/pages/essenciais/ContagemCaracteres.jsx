@@ -1,5 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
+import Header from "../../components/Header";
+import SeletorCor from "../../components/SeletorCor";
 
 export default function ContagemCaracter() {
 
@@ -25,8 +27,9 @@ export default function ContagemCaracter() {
 
     return (
         <>
-            <h1 className="text-gray-200 font-extrabold text-4xl">Contagem de caracteres</h1>
-            <p className="text-gray-400">Entendendo as funções de limpeza</p>
+            <Header title="Contagem de caracteres" subtitle="Entendendo as funções de limpeza">
+                <SeletorCor />
+            </Header>
             <div className="flex justify-center flex-col items-center h-[90%]">
                 <h2 className="text-white text-5xl mb-4 font-semibold">Digite o texto</h2>
                 <p className="text-white text-2xl my-8 ">{caracterRestante} Caracteres restantes</p>

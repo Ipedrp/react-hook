@@ -1,13 +1,15 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
+import Header from "../../components/Header";
+import SeletorCor from "../../components/SeletorCor";
 
 export default function Consulta() {
 
     const [url, setUrl] = useState(null);
 
-    useEffect(() =>{
+    useEffect(() => {
         console.log("Foto Atualizada!");
-        
+
         getDog();
     }, [])
     //O array vazio, só faz a requisição quando o componente é montado.
@@ -24,12 +26,13 @@ export default function Consulta() {
 
     return (
         <>
-            <h1 className="text-gray-200 font-extrabold text-4xl">Requisição à API</h1>
-            <p className="text-gray-400">Requerindo dados</p>
+            <Header title="Requisição à API" subtitle="Requerindo dados">
+                <SeletorCor />
+            </Header>
             <div className="flex justify-center flex-col items-center h-[90%]">
-                <img 
-                    className="max-w-sm" 
-                    src={url} 
+                <img
+                    className="max-w-sm"
+                    src={url}
                     alt="imagens de cachorros" />
             </div>
         </>

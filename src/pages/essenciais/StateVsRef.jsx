@@ -1,4 +1,6 @@
 import { useState, useRef } from "react"
+import Header from "../../components/Header";
+import SeletorCor from "../../components/SeletorCor";
 
 export default function StateVsRef() {
 
@@ -17,8 +19,10 @@ export default function StateVsRef() {
 
     return (
         <>
-            <h1 className="text-gray-200 font-extrabold text-4xl">Referência vs Estado</h1>
-            <p className="text-gray-400">Entendendo useRef</p>
+
+            <Header title="Referência vs Estado" subtitle="Entendendo useRef">
+                <SeletorCor />
+            </Header>
             <div className="flex justify-center flex-col items-center h-[90%]">
                 <p className="text-white text-5xl">
                     R: {referencia.current} | S: {estado}

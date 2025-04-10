@@ -1,4 +1,6 @@
 import { useState } from "react"
+import Header from "../../components/Header";
+import SeletorCor from "../../components/SeletorCor";
 
 export default function Votacao() {
 
@@ -36,8 +38,9 @@ export default function Votacao() {
 
     return (
         <>
-            <h1 className="text-gray-200 font-extrabold text-4xl">Votação</h1>
-            <p className="text-gray-400">Usando estado com objeto</p>
+            <Header title="Votação" subtitle="Usando estado com objeto">
+                <SeletorCor />
+            </Header>
             <div className="flex justify-center flex-col items-center h-[90%]">
                 <p className="text-white text-5xl mb-3">Qual a melhor cor ?</p>
                 <p className="text-white text-3xl">Verde: {data.voteGreen} | Roxo: {data.votePurple}</p>

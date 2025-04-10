@@ -1,5 +1,7 @@
 import { useState, useRef } from "react"
 import { FaArrowLeft } from "react-icons/fa";
+import Header from "../../components/Header";
+import SeletorCor from "../../components/SeletorCor";
 
 export default function RefElemento() {
 
@@ -16,8 +18,9 @@ export default function RefElemento() {
 
     return (
         <>
-            <h1 className="text-gray-200 font-extrabold text-4xl">Referenciando um elemento</h1>
-            <p className="text-gray-400">Usando referencias na DOM</p>
+            <Header title="Referenciando um elemento" subtitle="Usando referencias na DOM">
+                <SeletorCor />
+            </Header>
             <div className="flex justify-center flex-col items-center h-[90%]">
                 <p
                     ref={referencia}

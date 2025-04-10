@@ -1,4 +1,6 @@
 import useStatesValidado from "../../hooks/useStatesValidado"
+import Header from "../../components/Header";
+import SeletorCor from "../../components/SeletorCor";
 
 export default function Senha() {
 
@@ -18,23 +20,24 @@ export default function Senha() {
 
     let borda;
     if (senha === "") {
-        borda = "border-none"; 
+        borda = "border-none";
     } else if (senhaEhValida) {
-        borda = "border-green-600"; 
+        borda = "border-green-600";
     } else {
-        borda = "border-red-600"; 
+        borda = "border-red-600";
     }
 
     return (
         <>
-            <h1 className="text-gray-200 font-extrabold text-4xl">Validando senha</h1>
-            <p className="text-gray-400">Usando hook personalizado para validação</p>
+            <Header title="Validando senha" subtitle="Usando hook personalizado para validação">
+                <SeletorCor />
+            </Header>
             <div className="flex justify-center flex-col items-center h-[90%]">
                 <p className="text-white text-3xl ">Input</p>
-                <input 
-                    type="text" 
-                    value={senha} 
-                    className={`${borda} border-3 w-40 flex bg-white rounded-md my-4`} 
+                <input
+                    type="text"
+                    value={senha}
+                    className={`${borda} border-3 w-40 flex bg-white rounded-md my-4`}
                     onChange={(e) => setSenha(e.target.value)}
                 />
             </div>
