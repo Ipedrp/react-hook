@@ -13,6 +13,7 @@ import Modal from '../pages/personalizados/Modal';
 import TamanhoJanela from '../pages/personalizados/TamanhoJanela';
 import Senha from '../pages/personalizados/Senha';
 import Loja from '../pages/contexto/Loja';
+
 export const AppRoutes = () => (
     <Routes>
         <Route element={<DefaultLayout />}>

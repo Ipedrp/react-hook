@@ -1,17 +1,10 @@
 // components/ColorPicker.jsx
+import useThema from "../hooks/useThema";
 import useToggle from "../hooks/useToggle";
 
 export default function SeletorCor() {
   const [ativo, toggleAtivo] = useToggle(false);
-  const cores = [
-    "bg-red-400",
-    "bg-blue-500",
-    "bg-pink-500",
-    "bg-orange-500",
-    "bg-green-500",
-    "bg-yellow-500",
-    "bg-purple-600"
-  ];
+  const { cores, setCorDestaque } = useThema(); // Desestruturação CORRETA
 
   return (
     <div className="relative">
@@ -36,13 +29,14 @@ export default function SeletorCor() {
         </svg>
       </button>
 
-      {ativo && (
+      {ativo && cores && ( // Acessa cores através de tema.cores
         <div className="absolute right-0 mt-2 p-2 bg-gray-800 rounded-lg shadow-lg flex gap-1 z-10">
-          {cores.map((cor, index) => (
+          {cores.map((cor, index) => ( // Usa tema.cores aqui
             <button
               key={index}
               className={`w-6 h-6 rounded ${cor} hover:opacity-80 transition-opacity`}
               aria-label={`Cor ${cor.replace('bg-', '')}`}
+              onClick={() => setCorDestaque(cor.replace('bg-', ''))} // Envia "blue-500" em vez de "bg-blue-500"            
             />
           ))}
         </div>

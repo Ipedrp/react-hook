@@ -8,7 +8,7 @@ import {
     FaExchangeAlt,
     FaChevronRight,
     FaAmilia,
-    FaShoppingCart 
+    FaShoppingCart
 } from 'react-icons/fa';
 import { GoNumber } from "react-icons/go";
 import { BsWindowX } from "react-icons/bs";
@@ -19,10 +19,13 @@ import { CgSmartphoneRam } from "react-icons/cg";
 import { Link, useLocation } from 'react-router';
 import useToggle from '../hooks/useToggle';
 import useTamanhoJanela from '../hooks/useTamanhoJanela';
+import useThema from "../hooks/useThema";
 
 const Sidebar = () => {
     const { largura, obterInfoDimensao } = useTamanhoJanela();
+    const { corDestaque } = useThema();
     const [isOpen, toggleOpen] = useToggle(true)
+
     const [dropdowns, setDropdowns] = useState({
         essenciais: false,
         personalizados: false,
@@ -95,8 +98,10 @@ const Sidebar = () => {
                                             <p>
                                                 Contador
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
-                                                    ${location.pathname === "/contador/useStates" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/contador/useStates" ? "text-white" : ""}`}
                                                 >
                                                     useStates
                                                 </span>
@@ -114,8 +119,10 @@ const Sidebar = () => {
                                             <p>
                                                 Votação
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
-                                                    ${location.pathname === "/votacao/useStates" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/votacao/useStates" ? "text-white" : ""}`}
                                                 >
                                                     useStates
                                                 </span>
@@ -133,8 +140,10 @@ const Sidebar = () => {
                                             <p>
                                                 Consumo API
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
-                                                    ${location.pathname === "/consulta/useEffect" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/consulta/useEffect" ? "text-white" : ""}`}
                                                 >
                                                     useEffect
                                                 </span>
@@ -152,8 +161,10 @@ const Sidebar = () => {
                                             <p>
                                                 Maior
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
-                                                    ${location.pathname === "/maior/useEffect" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/maior/useEffect" ? "text-white" : ""}`}
                                                 >
                                                     useEffect
                                                 </span>
@@ -171,8 +182,10 @@ const Sidebar = () => {
                                             <p>
                                                 Contagem Caracteres
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
-                                                    ${location.pathname === "/caracter/useEffect" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/caracter/useEffect" ? "text-white" : ""}`}
                                                 >
                                                     useEffect
                                                 </span>
@@ -190,8 +203,10 @@ const Sidebar = () => {
                                             <p>
                                                 Estado Vs Referência
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
-                                                    ${location.pathname === "/stateVSref/useRef" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/stateVSref/useRef" ? "text-white" : ""}`}
                                                 >
                                                     useRef
                                                 </span>
@@ -209,8 +224,10 @@ const Sidebar = () => {
                                             <p>
                                                 Referenciando Elemento
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
-                                                    ${location.pathname === "/elemento/useRef" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/elemento/useRef" ? "text-white" : ""}`}
                                                 >
                                                     useRef
                                                 </span>
@@ -228,8 +245,10 @@ const Sidebar = () => {
                                             <p>
                                                 Contagem Caracteres
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2 
-                                                    ${location.pathname === "/caracter/useRef" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/caracter/useRef" ? "text-white" : ""}`}
                                                 >
                                                     useRef
                                                 </span>
@@ -267,8 +286,10 @@ const Sidebar = () => {
                                             <p>
                                                 Modal
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
-                                                    ${location.pathname === "/useToogle/useHook" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/useToogle/useHook" ? "text-white" : ""}`}
                                                 >
                                                     useHook
                                                 </span>
@@ -286,8 +307,10 @@ const Sidebar = () => {
                                             <p>
                                                 Tamanho da Janela
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
-                                                    ${location.pathname === "/useTamanhoJanela/useHook" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/useTamanhoJanela/useHook" ? "text-white" : ""}`}
                                                 >
                                                     useHook
                                                 </span>
@@ -303,10 +326,11 @@ const Sidebar = () => {
                                         <TbPasswordFingerprint size={15} />
                                         {isOpen && (
                                             <p>
-                                                Senha
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
-                                                    ${location.pathname === "/useStatesValidado/useHook" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/useStatesValidado/useHook" ? "text-white" : ""}`}
                                                 >
                                                     useHook
                                                 </span>
@@ -339,13 +363,15 @@ const Sidebar = () => {
                                         className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
                                         ${location.pathname === "/loja/useContext" && "text-sky-400 bg-stone-600"}`}
                                     >
-                                        <FaShoppingCart  size={15} />
+                                        <FaShoppingCart size={15} />
                                         {isOpen && (
                                             <p>
                                                 Loja
                                                 <span
-                                                    className={`text-xs bg-neutral-700 px-2 py-0 rounded-xl ml-2
-                                                    ${location.pathname === "/loja/useContext" && "text-white bg-sky-500"}`}
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/loja/useContext" ? "text-white" : ""}`}
                                                 >
                                                     useContext
                                                 </span>
