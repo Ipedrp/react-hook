@@ -10,6 +10,7 @@ import {
     FaAmilia,
     FaShoppingCart
 } from 'react-icons/fa';
+import { TiPinOutline } from "react-icons/ti";
 import { GoNumber } from "react-icons/go";
 import { BsWindowX } from "react-icons/bs";
 import { CgDockWindow } from "react-icons/cg";
@@ -374,6 +375,47 @@ const Sidebar = () => {
                                                     className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/loja/useContext" ? "text-white" : ""}`}
                                                 >
                                                     useContext
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                            </ul>
+                        </li>
+                    </ul>
+                    {/* Outros */}
+                    <ul className="space-y-4 my-4">
+                        <li>
+                            <button
+                                onClick={() => toggleDropdown('outros')}
+                                className={`flex items-center w-full text-left bg-transparent text-white focus:outline-none 
+                                ${isOpen && "space-x-4"}`}
+                            >
+                                <FaRegFolder size={20} /> {/* Ícone fixo */}
+                                {isOpen && <span className='text-sm font-bold'>OUTROS</span>}
+                                {isOpen ? (
+                                    dropdowns.outros ? <FaChevronDown size={16} /> : <FaChevronUp size={16} />
+                                ) : null}
+                            </button>
+                            <ul className={` text-white rounded-md mt-2 w-full 
+                                transition-all duration-500 ease-in-out overflow-hidden 
+                                ${dropdowns.outros && isOpen ? "max-h-120 opacity-100" : "max-h-0 opacity-0"}`}>
+                                <Link to="/memoizando/useMemo">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/memoizando/useMemo" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <TiPinOutline size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Memoizando
+                                                <span
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/memoizando/useMemo" ? "text-white" : ""}`}
+                                                >
+                                                    useMemo
                                                 </span>
                                             </p>
                                         )}
