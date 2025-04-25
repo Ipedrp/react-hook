@@ -68,7 +68,7 @@ const Sidebar = () => {
                 {/* Menu */}
                 <div className="flex flex-col p-4 ">
                     {/* Essenciais */}
-                    <ul className="space-y-4 ">
+                    <ul className="space-y-4">
                         {/* Item de Dropdown */}
                         <li >
                             <button
@@ -261,7 +261,7 @@ const Sidebar = () => {
                         </li>
                     </ul>
                     {/* Personalizados */}
-                    <ul className="space-y-4 my-4">
+                    <ul className="space-y-4">
                         <li>
                             <button
                                 onClick={() => toggleDropdown('personalizados')}
@@ -343,7 +343,7 @@ const Sidebar = () => {
                         </li>
                     </ul>
                     {/* Contexto */}
-                    <ul className="space-y-4 my-4">
+                    <ul className="space-y-4">
                         <li>
                             <button
                                 onClick={() => toggleDropdown('contexto')}
@@ -384,7 +384,7 @@ const Sidebar = () => {
                         </li>
                     </ul>
                     {/* Outros */}
-                    <ul className="space-y-4 my-4">
+                    <ul className="space-y-4">
                         <li>
                             <button
                                 onClick={() => toggleDropdown('outros')}
@@ -416,6 +416,27 @@ const Sidebar = () => {
                                                     className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/memoizando/useMemo" ? "text-white" : ""}`}
                                                 >
                                                     useMemo
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/memoizandoFuncoes/useCallback">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/memoizandoFuncoes/useCallback" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <TiPinOutline size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Memoizando Funções
+                                                <span
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/memoizandoFuncoes/useCallback" ? "text-white" : ""}`}
+                                                >
+                                                    useCallback
                                                 </span>
                                             </p>
                                         )}

@@ -13,7 +13,8 @@ import Modal from '../pages/personalizados/Modal';
 import TamanhoJanela from '../pages/personalizados/TamanhoJanela';
 import Senha from '../pages/personalizados/Senha';
 import Loja from '../pages/contexto/Loja';
-import Memoizando from '../pages/outros/Memoizando'
+import Memoizando from '../pages/outros/Memoizando';
+import MemoizandoFuncoes from '../pages/outros/MemoizandoFuncoes';
 export const AppRoutes = () => (
     <Routes>
         <Route element={<DefaultLayout />}>
@@ -31,6 +32,7 @@ export const AppRoutes = () => (
             <Route path="/useStatesValidado/useHook" element={<Senha />} />
             <Route path="/loja/useContext" element={<Loja />} />
             <Route path="/memoizando/useMemo" element={<Memoizando />} />
+            <Route path="/memoizandoFuncoes/useCallback" element={<MemoizandoFuncoes />} />
         </Route>
     </Routes>
 );

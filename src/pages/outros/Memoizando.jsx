@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import Header from "../../components/Header";
 import SeletorCor from "../../components/SeletorCor";
 
-export default function Loja() {
+export default function Memoizando() {
 
     const [numero1, setNumero1] = useState(1);
     const [numero2, setNumero2] = useState(1);
