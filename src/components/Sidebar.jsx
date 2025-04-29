@@ -463,6 +463,27 @@ const Sidebar = () => {
                                         )}
                                     </li>
                                 </Link>
+                                <Link to="/textoSecreto/useLayoutEffect">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/textoSecreto/useLayoutEffect" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <FaAmilia size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Texto secreto
+                                                <span
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/textoSecreto/useLayoutEffect" ? "text-white" : ""}`}
+                                                >
+                                                    useLayoutEffect
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
                             </ul>
                         </li>
                     </ul>

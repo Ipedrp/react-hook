@@ -16,7 +16,7 @@ import Loja from '../pages/contexto/Loja';
 import Memoizando from '../pages/outros/Memoizando';
 import MemoizandoFuncoes from '../pages/outros/MemoizandoFuncoes';
 import FormularioImperativeHandle from '../pages/outros/FormularioImperativeHandle';
-
+import TextoSecreto from '../pages/outros/TextoSecreto';
 export const AppRoutes = () => (
     <Routes>
         <Route element={<DefaultLayout />}>
@@ -36,6 +36,7 @@ export const AppRoutes = () => (
             <Route path="/memoizando/useMemo" element={<Memoizando />} />
             <Route path="/memoizandoFuncoes/useCallback" element={<MemoizandoFuncoes />} />
             <Route path="/formularioImperativeHandle/useImperativeHandle" element={<FormularioImperativeHandle />} />
+            <Route path="/textoSecreto/useLayoutEffect" element={<TextoSecreto />} />
         </Route>
     </Routes>
 );
