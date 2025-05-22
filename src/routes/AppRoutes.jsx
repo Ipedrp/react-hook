@@ -18,6 +18,8 @@ import MemoizandoFuncoes from '../pages/outros/MemoizandoFuncoes';
 import FormularioImperativeHandle from '../pages/outros/FormularioImperativeHandle';
 import TextoSecreto from '../pages/outros/TextoSecreto';
 import GeradorDeCorAleatoria from '../pages/outros/GeradorDeCorAleatoria';
+import SomaUseStates from '../pages/outros/SomaUseStates';
+
 export const AppRoutes = () => (
     <Routes>
         <Route element={<DefaultLayout />}>
@@ -39,6 +41,7 @@ export const AppRoutes = () => (
             <Route path="/formularioImperativeHandle/useImperativeHandle" element={<FormularioImperativeHandle />} />
             <Route path="/textoSecreto/useLayoutEffect" element={<TextoSecreto />} />
             <Route path="/geradorCorAleatoria/useLayoutEffect" element={<GeradorDeCorAleatoria />} />
+            <Route path="/soma/useStates" element={<SomaUseStates />} />
         </Route>
     </Routes>
 );

@@ -11,7 +11,7 @@ import {
     FaShoppingCart
 } from 'react-icons/fa';
 import { TiPinOutline } from "react-icons/ti";
-import { GoNumber } from "react-icons/go";
+import { GoNumber, GoDatabase } from "react-icons/go";
 import { BsWindowX } from "react-icons/bs";
 import { CgDockWindow } from "react-icons/cg";
 import { RiRefreshLine } from "react-icons/ri";
@@ -500,6 +500,27 @@ const Sidebar = () => {
                                                     className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/geradorCorAleatoria/useLayoutEffect" ? "text-white" : ""}`}
                                                 >
                                                     useLayoutEffect
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/soma/useStates">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/soma/useStates" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <GoDatabase  size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Soma com useStates
+                                                <span
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/soma/useStates" ? "text-white" : ""}`}
+                                                >
+                                                    useStates
                                                 </span>
                                             </p>
                                         )}
