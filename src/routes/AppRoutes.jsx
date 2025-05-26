@@ -20,6 +20,8 @@ import TextoSecreto from '../pages/outros/TextoSecreto';
 import GeradorDeCorAleatoria from '../pages/outros/GeradorDeCorAleatoria';
 import SomaUseStates from '../pages/outros/SomaUseStates';
 import SomaUseReducer from '../pages/outros/SomaUseReducer';
+import FormularioUseId1 from '../pages/outros/FormularioUseId1';
+import FormularioUseId2 from '../pages/outros/FormularioUseId2';
 
 export const AppRoutes = () => (
     <Routes>
@@ -44,6 +46,8 @@ export const AppRoutes = () => (
             <Route path="/geradorCorAleatoria/useLayoutEffect" element={<GeradorDeCorAleatoria />} />
             <Route path="/soma/useStates" element={<SomaUseStates />} />
             <Route path="/soma/useReducer" element={<SomaUseReducer />} />
+            <Route path="/formulario/useId" element={<FormularioUseId1 />} />
+            <Route path="/formulario2/useId" element={<FormularioUseId2 />} />
         </Route>
     </Routes>
 );

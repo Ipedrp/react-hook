@@ -15,6 +15,7 @@ import { GoNumber, GoDatabase } from "react-icons/go";
 import { BsWindowX } from "react-icons/bs";
 import { CgDockWindow } from "react-icons/cg";
 import { RiRefreshLine } from "react-icons/ri";
+import { SiGoogleforms } from "react-icons/si";
 import { TbPasswordFingerprint, TbColorSwatch  } from "react-icons/tb";
 import { CgSmartphoneRam } from "react-icons/cg";
 import { Link, useLocation } from 'react-router';
@@ -540,6 +541,48 @@ const Sidebar = () => {
                                                         backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
                                                     }}
                                                     className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/soma/useReducer" ? "text-white" : ""}`}
+                                                >
+                                                    useReducer
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/formulario/useId">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/formulario/useId" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <SiGoogleforms  size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Formulario useId
+                                                <span
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/formulario/useId" ? "text-white" : ""}`}
+                                                >
+                                                    useReducer
+                                                </span>
+                                            </p>
+                                        )}
+                                    </li>
+                                </Link>
+                                <Link to="/formulario2/useId">
+                                    <li
+                                        className={`mb-2 py-2 px-2 rounded-md cursor-pointer flex items-center justify-start space-x-4
+                                        ${location.pathname === "/formulario2/useId" && "text-sky-400 bg-stone-600"}`}
+                                    >
+                                        <SiGoogleforms  size={15} />
+                                        {isOpen && (
+                                            <p>
+                                                Formulario 2 useId
+                                                <span
+                                                    style={{
+                                                        backgroundColor: `var(--color-${corDestaque})` // Ou use uma função que converta "blue-500" para código hex
+                                                    }}
+                                                    className={`text-xs px-2 py-0 rounded-xl ml-2 ${location.pathname === "/formulario2/useId" ? "text-white" : ""}`}
                                                 >
                                                     useReducer
                                                 </span>
